@@ -6,8 +6,8 @@ Zend Framework Cli
 
 Configure
 ----------
-1. modify "public/index.php" line 1 #!/usr/local/zend/bin/php - (`which php`)
-2. php.ini add include_path = ".:/usr/local/zend/share/ZendFramework/library:/usr/local/zend/share/pear"
+1. modify public/index.php line 1 `#!/usr/local/zend/bin/php`
+2. php.ini add zend framework include_path = ".:/usr/local/zend/share/ZendFramework/library:/usr/local/zend/share/pear"
 
 How to use
 ------------
@@ -20,6 +20,7 @@ change directory to "public" folder
 Environment Test Example
 --------------------------
     ./index.php -a defaults.env.debug
+    ./index.php -a defaults.env.debug -e development
 
 Feature 0.2
 --------
