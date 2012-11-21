@@ -3,7 +3,7 @@ Zend Framework Cli
 * Zend Framework Cli
 * Zend Framework multi database
 
-Require
+Requirements
 --------
 * PHP 5.3+
 * Zend Framework 1.1+
