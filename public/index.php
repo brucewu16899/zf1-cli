@@ -16,7 +16,7 @@ set_include_path(implode(PATH_SEPARATOR, array(
 
 try {
 	
-	$loader = Zend_Loader_Autoloader::getInstance();
+	Zend_Loader_Autoloader::getInstance();
 	
 	$opts = new Zend_Console_Getopt(array(
 		'help|h' => 'display usage inforation.',
@@ -29,7 +29,7 @@ try {
 		'dashDash' => false
 	));
 	
-	if (isset($opts->help) || count($opts->getOptions()) === 0) {
+	if (isset($opts->help) || count($opts->getOptions()) === 0 || empty($opts->action)) {
 		echo $opts->getUsageMessage();
 		exit(1);
 	}
@@ -49,9 +49,14 @@ try {
 							 ->bootstrap('frontController')
 							 ->getResource('frontController');
 		
-		@list($action, $controller, $module) = array_reverse(explode('.', $opts->action));
+		$params = array_reverse(explode('.', $opts->action));
 		
-		$request = new Zend_Controller_Request_Simple($action, $controller, $module);
+		// reference nn90121@2be.com.tw
+		$module = array_pop($params);
+		$controller = array_pop($params);
+		$action = array_pop($params);
+		
+		$request = new Zend_Controller_Request_Simple($action, $controller, $module, $params);
 		
 		$front->setRequest($request)
 			  ->setResponse(new Zend_Controller_Response_Cli())
