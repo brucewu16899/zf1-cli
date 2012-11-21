@@ -1,28 +1,32 @@
 Zend Framework Cli
 ===================
-
 * Zend Framework Cli
 * Zend Framework multi database
 
+Require
+--------
+* PHP 5.3+
+* Zend Framework 1.1+
+
 Configure
 ----------
-1. modify public/index.php line 1 `#!/usr/local/zend/bin/php`
-2. php.ini add zend framework include_path = ".:/usr/local/zend/share/ZendFramework/library:/usr/local/zend/share/pear"
+* public/index.php  `#!/usr/local/zend/bin/php`
+* php.ini `include_path = "/usr/local/zend/share/ZendFramework/library"`
 
 How to use
-------------
-change directory to "public" folder
+-----------
+at **public** folder
 
-    ./index.php --help
-    ./index.php --action defaults.index.index
-    ./index.php --action defaults.crawler.run
+* ./index.php --help
+* ./index.php --action defaults.index.index
+* ./index.php --action defaults.crawler.run
 
-Environment Test Example
---------------------------
-    ./index.php -a defaults.env.debug
-    ./index.php -a defaults.env.debug -e development
+Environment Test 
+-------------------------
+* ./index.php -a defaults.env.debug
+* ./index.php -a defaults.env.debug -e development
 
 Feature 0.2
---------
-    1. performance tuning
-    2. multi threading
+------------
+ * performance tuning
+ * multi threading
